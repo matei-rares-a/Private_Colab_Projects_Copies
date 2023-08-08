@@ -1,0 +1,86 @@
+body, h1, h2, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+  
+  .container {
+    max-width: 800px;
+    margin: 120px auto; /* Centrăm containerul pe orizontală */
+    padding: 20px;
+    margin-left: 90px; /* Adăugăm o margine de 50px pe stânga */
+    padding-left: 50px; /* Adăugăm un padding de 50px pe stânga */
+    
+  }
+  
+  // h1 {
+  //   font-size: 30px; /* Setăm dimensiunea fontului pentru h1 la 36 de pixeli */
+  //   margin-bottom: 10px;
+  //   margin-top: 20px; /* Adăugăm o margine de 20px deasupra titlului */
+  //   color: #485F35;
+  // }
+  
+  h1 {
+    color: var(--day-text-icons-text-01, rgba(27, 31, 59, 0.80));
+    /* Desktop/Heading 1 */
+    margin-top: 20px;
+    font-family: Manrope;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 120%; /* Modifică această valoare pentru a ajusta spațiul între rânduri */
+}
+
+.container h1 {
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 30px;
+    margin: 0;
+    text-align: left;
+    margin-top: 10px;
+    line-height: 140%; /* Modifică această valoare pentru a ajusta spațiul între rânduri */
+}
+  .imagine-stilizata {
+    width: 650px; /* Modifică dimensiunea imaginii la lățimea dorită */
+    height: auto; /* Asigură-te că aspect ratio (raportul de aspect) se păstrează */
+    position: absolute; /* Setează poziționarea absolută */
+    top: 100px; /* Poziționează imaginea la 50px de partea de sus a elementului părinte */
+    left: 1200px; /* Poziționează imaginea la 50px de partea stângă a elementului părinte */
+    /* Alte stilizări, dacă dorești */
+    border-radius: 20px;
+  }
+  
+  $icon-size-normal: 35px;
+  $icon-size-hover: 40px;
+  /* Stilizăm secțiunea de link-uri */
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  
+  
+    svg {
+      width: $icon-size-normal;
+      height: $icon-size-normal;
+      fill: #1877F2; // Culoarea de umplere a iconițelor (înlocuiește cu culoarea dorită)
+  
+      // Efect de tranzitie pentru marimea iconitelor la hover
+      transition: transform 0.2s ease-in-out;
+  
+      // Efect de hover: mărește iconița și aplică un efect de clătinare
+      &:hover {
+        transform: scale(1.2) rotate(-8deg); // Mărește iconița la 1.2x și aplică o rotație de -5 grade
+      }
+    }
+  
+    // Poți adauga margin sau padding între iconițe dacă dorești
+    svg + svg {
+      margin-left: 10px;
+    }
+  
+    
+  }
+
+  

@@ -1,0 +1,175 @@
+<div class="filters">
+  <!-- Category -->
+  <div class="custom-select">
+    <div
+      class="select-container"
+      (mouseenter)="toggleOptionsVisibilityCategory(true)"
+      (mouseleave)="toggleOptionsVisibilityCategory(false)"
+    >
+      <div class="selected-options selected">
+      <div class="text">  {{ getSelectedDisplayCategory() }}</div>
+        <img src="assets/categories-icon.png" class="icon" alt="Icon" />
+      </div>
+      <div class="options" [hidden]="!areOptionsVisible">
+        <label *ngFor="let option of optionsCategory">
+          {{ option }}
+          <input
+            type="checkbox"
+            [checked]="selectedOptionsCategory.includes(option)"
+            (change)="toggleSelectionCategory(option)"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- City -->
+  <div class="custom-select">
+    <div
+      class="select-container"
+      (mouseenter)="toggleOptionsVisibilityCity(true)"
+      (mouseleave)="toggleOptionsVisibilityCity(false)"
+    >
+      <div class="selected-options selected">
+        <div class="text">  {{ getSelectedDisplayCity() }}</div>
+        <img src="assets/city-icon.png" class="icon" alt="Icon" />
+      </div>
+      <div class="options city" [hidden]="!areOptionsVisibleCity">
+        <label *ngFor="let option of optionsCity">
+          {{ option }}
+          <input
+            type="checkbox"
+            [checked]="selectedOptionsCity.includes(option)"
+            (change)="toggleSelectionCity(option)"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Author -->
+  <div class="custom-select">
+    <div
+      class="select-container"
+      (mouseenter)="toggleOptionsVisibilityAuthor(true)"
+      (mouseleave)="toggleOptionsVisibilityAuthor(false)"
+    >
+      <div class="selected-options selected">
+        <div class="text">  {{ getSelectedDisplayAuthor() }}</div>
+        <img src="assets/author-logo.png" class="icon" alt="Icon" />
+      </div>
+      <div class="options" [hidden]="!areOptionsVisibleAuthor">
+        <label *ngFor="let option of optionsAuthor">
+          {{ option }}
+          <input
+            type="checkbox"
+            [checked]="selectedOptionsAuthor.includes(option)"
+            (change)="toggleSelectionAuthor(option)"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- SortedBy -->
+
+  <div class="custom-select-second">
+  <div
+    class="select-container-second"
+    (mouseenter)="toggleOptionsVisibilitySortedBy(true)"
+    (mouseleave)="toggleOptionsVisibilitySortedBy(false)"
+  >
+    <div class="selected-options-second selected">
+    <div class="text">  {{ selectedOptionsSortedBy || "Sorted By" }}</div>
+      <img src="assets/sort-logo.png" class="icon-second" alt="Icon" />
+    </div>
+    <div class="options-second" [hidden]="!areOptionsVisibleSortedBy">
+      <div
+        *ngFor="let option of optionsSortedBy"
+        (click)="selectOptionSortedBy(option)"
+      >
+        {{ option }}
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- EventDate -->
+  <div class="custom-select-second">
+  <div
+  class="select-container-second"
+  (mouseenter)="toggleOptionsVisibilityEventDate(true)"
+    (mouseleave)="toggleOptionsVisibilityEventDate(false)"
+  >
+    <div class="selected-options-second selected">
+      <div class="text">  {{ selectedOptionsEventDate || "Date of event" }}</div>
+      <img src="assets/calendar-logo.png" class="icon-second" alt="Icon" />
+    </div>
+    <div class="options-second" [hidden]="!areOptionsVisibleEventDate">
+      <div
+        *ngFor="let option of optionsEventDate"
+        (click)="selectOptionEventDate(option)"
+      >
+        {{ option }}
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Post date -->
+  <div class="custom-select-second">
+  <div
+  class="select-container-second"
+  (mouseenter)="toggleOptionsVisibilityPostDate(true)"
+    (mouseleave)="toggleOptionsVisibilityPostDate(false)"
+  >
+    <div class="selected-options-second selected">
+      <div class="text">   {{ selectedOptionsPostDate || "Post date" }}</div>
+      <img src="assets/calendar-logo.png" class="icon-second" alt="Icon" />
+    </div>
+    <div class="options-second" [hidden]="!areOptionsVisiblePostDate">
+      <div
+        *ngFor="let option of optionsPostDate"
+        (click)="selectOptionPostDate(option)"
+      >
+        {{ option }}
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <button  class="applyButton" (click)="selectedOptions()">Apply</button>
+  <button class="clearButton" (click)="clearOptions()">Clear</button>
+</div>
+
+<!-- <div class="date-input">
+  <label class="placeholder" *ngIf="isEventDateChosen">Date of event</label>
+  <input
+    class="date"
+    style="border: none"
+    type="date"
+    (input)="onEventDateChosen()"
+    #eventDateInput
+  />
+</div>
+
+
+
+
+<div class="date-input">
+  <label class="placeholder" *ngIf="isPostDateChosen">Post date</label>
+  <input
+    class="date"
+    style="border: none"
+    type="date"
+    (input)="onPostDateChosen()"
+    #postDateInput
+  />
+</div>
+ -->
+
+<!-- <div class="date-input">
+  <label class="placeholder">Choose a date</label>
+  <input class="date" style="border:none" type="date" />
+</div> -->

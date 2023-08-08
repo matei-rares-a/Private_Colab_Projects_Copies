@@ -1,0 +1,321 @@
+h1 {
+    display: block; /* Display the <h1> as a block element */
+    color: var(--day-text-icons-text-01, rgba(27, 31, 59, 0.80));
+    font-family: Manrope;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 56px; /* 155.556% */
+    margin-top:50px;
+    margin-left:40%;
+    margin-bottom: 100px;
+  }
+  p{
+    color: var(--neutral-gray-dark, #545563);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px; /* 114.286% */
+    margin-top:24px;
+    margin-left:72px;
+  }
+  
+  #text1{
+    width: 554px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid var(--neutral-gray-light, #C7C8D2);
+    background: #FFF;
+    margin-left:72px;
+    resize: none;
+  }
+
+  #text2{
+    width: 554px;
+    height: 167px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid var(--neutral-gray-light, #C7C8D2);
+    background: #FFF;
+    margin-left:72px;
+    resize: none;
+  }
+
+
+  label{
+    align-self: stretch;
+    color: #545563;
+    font-family: Roboto;
+    font-size: 13.859px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 13.874px; /* 100.108% */
+  }
+
+  select{
+    width:448px;
+    height:auto; 
+    display: flex;
+    height: 28px;
+    padding: 0px 8.324px;
+    align-items: flex-start;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 8.324px;
+    border: 0.99px solid #C7C8D2;
+    background: rgba(199, 200, 210, 0.00);
+  }
+
+  #date{
+
+    display: flex;
+    padding: 0px 5.639px;
+    align-items: flex-start;
+    align-self: stretch;
+    border-radius: 5.639px;
+    border: 0.47px solid var(--day-base-base-04, #D7D7D7);
+    background: var(--day-base-base-01, #FFF);
+    box-shadow: 0px 0.9397820830345154px 1.4096730947494507px 0px rgba(0, 0, 0, 0.10);
+  }
+  
+  input[type=text]{
+    display: flex;
+    width: 482px;
+    height: 28px;
+    flex-shrink: 0;
+    border-radius: 7.018px;
+    border: 0.877px solid var(--neutral-gray-light, #C7C8D2);
+    background: #FFF;
+  }
+  
+  input[type=submit] {
+    width: 150px;
+    height: 43px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 100px;
+    background: #485F35;
+    color: white;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+  }
+  
+  /* Styles for the dimmed button when it's disabled */
+  input[type=submit][disabled] {
+    opacity: 0.6; /* You can adjust the opacity value as per your preference */
+    cursor: not-allowed;
+  }
+  
+  .submit-bottom {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .submit-bottom input[type="submit"] {
+    display: inline-block;
+    line-height: 40px;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 200px;
+    margin-top: -50px;
+  }
+
+
+  
+  .text,
+  .categories {
+    flex: 1;
+    min-width: 0;
+    /* Flex items share the available space equally */
+  }
+
+  .file-upload {
+    flex-basis: 100%;
+    /* The .file-upload div takes the full width (starts on the next line) */
+  }
+
+  /* Additional styling for demonstration purposes */
+  .form-container {
+    //border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+  .text,
+  .categories,
+  .file-upload {
+    //border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+  }
+
+  .categories{
+    margin-top: 25px;
+  }
+
+
+
+
+////imagini
+
+   //3
+  #file-input {
+    display: none;
+  }
+  
+  .file-upload {
+    background-color: #485F35;
+   // box-shadow: 0 10px 60px #485F35;
+    border: 1px solid #485F35;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.125rem;
+    max-width: 320px;
+  }
+
+  .file-preview {
+    margin-top: 2.1875rem;
+  }
+  
+  .file-name {
+    color: #444;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .discard-button {
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+
+  .drop-title {
+    color: #444;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: color .2s ease-in-out;
+  }
+
+  .drop-container:hover {
+    background: rgba(0, 140, 255, 0.164);
+    border-color: rgba(17, 17, 17, 0.616);
+  }
+
+
+  .drop-container {
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 2.1875rem;
+    border-radius: 10px;
+    border: 2px dashed #485F35;
+    color: #444;
+    cursor: pointer;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+    position: relative;
+
+  }
+
+  .file-upload {
+    background-color: #fff;
+   // box-shadow: 0 10px 60px #637257;
+    border: 1px solid #637257;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.125rem;
+    max-width: 320px;
+    margin-left: 370px;
+  }
+  .drop-container::after {
+    content: 'Choose File';
+    display: inline-block;
+    background-color: #485F35;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .drop-container:hover::after,
+#file-input:valid + .drop-container::after {
+  background-color: #485F35;
+}
+
+
+/////////////////////////////////// selecturi speciale
+.custom-select {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+.select-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  z-index: 60;
+}
+
+
+
+.selected-options {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  position: relative;
+  border-radius: 8px ; /* Rounded bottom corners */
+  width: 300px;
+  height: 16px;
+}
+.selected-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 8px 8px 8px 8px; /* Rounded bottom corners */
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+label input[type="checkbox"] {
+  margin-left: 5px;
+}
+
+
+

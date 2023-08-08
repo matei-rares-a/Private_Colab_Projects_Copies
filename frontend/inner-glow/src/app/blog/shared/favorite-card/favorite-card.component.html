@@ -1,0 +1,42 @@
+<div class="card">
+  <!-- <img [routerLink]="route" class="template-img" [src]="imageSrcc" width="326px" height="181px" />
+  <object data="assets/loading.svg" type="image/svg+xml"></object> -->
+
+  <div *ngIf="loadingImage" [routerLink]="route">
+    <object
+      data="assets/loading-static.png"
+      type="image/svg+xml"
+      width="326px"
+      height="200px"
+    ></object>
+    <!-- "assets/loading.svg" -->
+  </div>
+
+  <div class="fundal" *ngIf="!loadingImage">
+    <img
+      [routerLink]="route"
+      class="template-img"
+      [src]="this.imageSrcc"
+      width="326px"
+      height="181px"
+    />
+  </div>
+
+  <div class="title-button">
+    <label class="title">{{ title }}</label>
+
+    <br />
+  </div>
+  <label class="custom-label">{{ truncatedContent }}</label>
+  <br />
+  <a [routerLink]="route" style="white-space: pre-line"> View More</a> <br />
+  <br />
+  <label>{{ date }}</label>
+  <br />
+  <label>{{ author }}</label>
+  <div class="heart">
+    <button (click)="toggleHeart()">
+      <img [src]="heartImageSrc" />
+    </button>
+  </div>
+</div>

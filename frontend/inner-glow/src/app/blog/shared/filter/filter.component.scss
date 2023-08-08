@@ -1,0 +1,206 @@
+
+  /* //teste de datepicker
+  :ng-deep #mat-mdc-form-field-label-0 > mat-label {
+    color:green !important;
+    background-color: red !important;
+  }
+
+  mat-label{
+    color:green !important;
+    background-color: red !important;
+  }
+
+  mat-form-field input {
+    color:green !important;
+    background-color: red !important;
+
+  }
+
+
+  .b-form tui-input-date{
+    width:200px;
+    height: 200px;;
+
+  }*/
+  
+  // please make these modifications:  the height og the component = 32px, rounded corners of 28px, distance between selected text and left border = 16px, ditance between selected text and image = 10px,distance between the image and right border =24px
+
+  button {
+    padding: 10px;
+    background-color: #57664b;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 5px ;
+
+  }
+  
+  button:hover {
+    background-color: #485F35;
+  }
+
+
+
+/* Styles for the custom select component */
+.custom-select {
+  position: relative;
+  display: inline-block;
+  height: 32px; /* Set the height of the component to 32px */
+  margin-top:10px;
+  margin-right:16px;
+  margin-bottom: 32px;
+}
+
+.select-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.selected-options {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border: 2px solid transparent; /* Thick 4px transparent border */
+  border-radius: 28px; /* Rounded corners of 28px */
+  background-color: #fff;
+  height: 100%;
+  border-color: #485F35; /* Border color changes to green on hover */
+
+}
+
+.selected-options:hover {
+  border-color: #485F35; /* Border color changes to green on hover */
+}
+
+.selected-options .text {
+  flex-grow: 1;
+  margin-right: 16px; /* Distance between selected text and image */
+  margin-left: 16px; /* Distance between selected text and left border */
+  font-size: 16px; /* Font size of the text is 16px */
+  color: #474747; /* Font color set to #474747 */
+}
+
+.selected-options .icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 16px; /* Distance between the image and right border */
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  margin-left: 10px; /* Adjust the left margin to move the dropdown to the right */
+  left: 0;
+  z-index: 1;
+  display: none;
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.options label {
+  display: block;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.options label:hover {
+  background-color: #f0f0f0;
+}
+
+.city {
+  position: absolute;
+  top: 100%;
+  margin-left: 10px; /* Adjust the left margin to move the dropdown to the right */
+  z-index: 1;
+}
+
+.city label {
+  padding: 8px 8px;
+}
+
+.city label:hover {
+  background-color: #f0f0f0;
+}
+
+/* Show the options when the select is active */
+.select-container:hover .options {
+  display: block;
+}
+
+/////////////////////////////////////////////
+
+
+.custom-select-second {
+  position: relative;
+  display: inline-block;
+  height: 32px; /* Set the height of the component to 32px */
+  margin-top: 10px;
+  margin-right: 16px;
+}
+
+.select-container-second {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.selected-options-second {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border: 2px solid transparent; /* Thick 4px transparent border */
+  border-radius: 28px; /* Rounded corners of 28px */
+  background-color: #fff;
+  height: 100%;
+  border-color: #485F35; /* Border color changes to green on hover */
+}
+
+.selected-options-second:hover {
+  border-color: #485F35; /* Border color changes to green on hover */
+}
+
+.selected-options-second .text {
+  flex-grow: 1;
+  margin-right: 10px; /* Distance between selected text and image */
+  margin-left: 16px; /* Distance between selected text and left border */
+  font-size: 16px; /* Font size of the text is 16px */
+  color: #474747; /* Font color set to #474747 */
+}
+
+.selected-options-second .icon-second {
+  width: 16px;
+  height: 16px;
+  margin-right: 16px; /* Distance between the image and right border */
+}
+
+.options-second {
+  position: absolute;
+  top: 100%;
+  margin-left: 10px; /* Adjust the left margin to move the dropdown to the right */
+  left: 0;
+  z-index: 1;
+  display: none;
+  background-color: #fff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.options-second div {
+  display: block;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.options-second div:hover {
+  background-color: #f0f0f0;
+}
+
+/* Show the options when the select is active */
+.select-container-second:hover .options-second {
+  display: block;
+}

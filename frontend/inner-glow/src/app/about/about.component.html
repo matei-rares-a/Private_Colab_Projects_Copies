@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagina cu Cards</title>
+</head>
+
+
+<div *ngIf="loading" class="custom-loader-container">
+  <div class="custom-loader"></div>
+  <div class="custom-loading-text">Please wait...</div>
+</div>
+
+
+
+
+
+<body *ngIf="!loading">
+  <h1>InnerGlow Team</h1>
+  <div class="cards-container">
+  <div *ngFor="let card of getDisplayedCards()" class="card">
+    <br>
+    <img [src]="card.img" alt="{{ card.id }}">
+    <h3 class="Name">{{ card.name }}</h3>
+    <p class="description">{{ card.description }}</p>
+    <div class="links">
+      <a [href]="card.link" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" viewBox="0 0 29 32" fill="none">
+          <g clip-path="url(#clip0_18_31560)">
+          <path d="M26.8592 0H2.14076C1.573 0 1.02849 0.248877 0.627016 0.691879C0.225544 1.13488 0 1.73572 0 2.36222V29.6378C0 30.2643 0.225544 30.8651 0.627016 31.3081C1.02849 31.7511 1.573 32 2.14076 32H26.8592C27.427 32 27.9715 31.7511 28.373 31.3081C28.7745 30.8651 29 30.2643 29 29.6378V2.36222C29 1.73572 28.7745 1.13488 28.373 0.691879C27.9715 0.248877 27.427 0 26.8592 0ZM8.64361 27.26H4.28354V11.9778H8.64361V27.26ZM6.46056 9.86C5.96598 9.85693 5.48331 9.69226 5.07347 9.38678C4.66363 9.08131 4.34497 8.64871 4.15773 8.14359C3.97048 7.63846 3.92303 7.08346 4.02137 6.54861C4.11971 6.01376 4.35943 5.52304 4.71027 5.13838C5.06111 4.75372 5.50736 4.49236 5.99269 4.38728C6.47802 4.28221 6.98068 4.33812 7.43723 4.54798C7.89379 4.75784 8.28378 5.11222 8.55798 5.56642C8.83218 6.02061 8.97831 6.55426 8.97792 7.1C8.98258 7.46538 8.92054 7.82805 8.79547 8.16641C8.67041 8.50476 8.48489 8.81187 8.24998 9.06942C8.01507 9.32698 7.73557 9.52971 7.42814 9.66553C7.12071 9.80136 6.79164 9.86749 6.46056 9.86ZM24.7144 27.2733H20.3564V18.9244C20.3564 16.4622 19.4079 15.7022 18.1834 15.7022C16.8905 15.7022 15.6217 16.7778 15.6217 18.9867V27.2733H11.2617V11.9889H15.4546V14.1067H15.511C15.9319 13.1667 17.406 11.56 19.6556 11.56C22.0883 11.56 24.7165 13.1533 24.7165 17.82L24.7144 27.2733Z" fill="#0A66C2"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_18_31560">
+          <rect width="29" height="32" fill="white"/>
+          </clipPath>
+          </defs>
+          </svg>
+      </a>
+    </div>
+  </div>
+  </div>
+
+  <div class="paginator">
+    <button id="leftButton" (click)="changePage(1)">&lt;</button>
+    <button id="rightButton" (click)="changePage(2)">&gt;</button>
+  </div>
+
+</body>
+</html>

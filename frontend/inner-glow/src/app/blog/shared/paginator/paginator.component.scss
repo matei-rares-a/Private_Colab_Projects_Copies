@@ -1,0 +1,22 @@
+.butoane {
+    margin-bottom: 20px;
+  }
+  
+  .butoane button {
+    border-radius: 50%; /* Make the buttons round */
+    background-color: #57664b;
+    height: 30px; /* Set the height to 30px */
+    width: 30px; /* Set the width to 30px */
+    color: white; /* Optionally set the text color to white for better visibility */
+    font-size: 16px; /* Optionally adjust the font size */
+    border: none; /* Optionally remove the border */
+    cursor: pointer; /* Show the pointer cursor when hovering over the button */
+  }
+  
+  /* Optionally, you can add some padding to the label for better spacing */
+  .butoane label {
+    padding: 0 10px;
+  }
+  .butoane button:hover {
+    background-color: #485F35;
+  }

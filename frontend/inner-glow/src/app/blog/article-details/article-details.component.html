@@ -1,0 +1,263 @@
+
+
+<div *ngIf="loading" class="custom-loader-container">
+  <div class="custom-loader"></div>
+  <div class="custom-loading-text">Please wait...</div>
+</div>
+
+
+
+
+
+<body *ngIf="!loading">
+  <div class="fat">
+    <img [src]="topImageSrc" alt="Imaginea de sus de fundal" />
+  </div>
+  <div class="title-container">
+    <h3>{{ article.title }}</h3>
+    <button class="edit editCreator" id="editCreator" *ngIf="isCreatorOfArticle()" (click)="handleEdit()">edit</button>
+    <button class="delete deleteCreator" id="deleteCreator" *ngIf="isCreatorOfArticle()" (click)="handleDeleteArticle()">delete</button>
+
+  </div>
+  <br />
+
+  <div class="details">
+    <label
+      >Publication date : {{ formatDate(article.publicateDate,true) }} | Author:
+      {{ article.author }}</label
+    >
+    <br />
+  </div>
+
+  <div class="bold_details">
+    <label>
+      {{ article.categories.join(", ") }} | {{ article.city }} |
+      {{ formatDate(article.dateOfTheEvent,false) }}
+    </label>
+  </div>
+
+  <br />
+
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+      <div class="content">
+        <div class="text">
+          <label style="white-space: pre-line">
+            {{ article.content }}
+          </label>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <!-- ngFor cu imagini (spatiere intre ele)-->
+      <div class="content">
+        <div class="images">
+          <button class="prev-btn" (click)="prevImage()">&lt;</button>
+          <img width="500px" height="300px" style="border-radius: 10px !important ;" [src]="sideImageToShow" alt="imagine de pe lateral" />
+          <button class="next-btn" (click)="nextImage()">&gt;</button>
+        </div>
+      </div></mat-grid-tile
+    >
+  </mat-grid-list>
+
+  <!-- <div class="image-slider">
+    <button class="prev-btn" onclick="prevImage()">Previous</button>
+    <img class="slider-image" src="imagine1.jpg" alt="Image 1" />
+    <button class="next-btn" onclick="nextImage()">Next</button>
+  </div> -->
+
+  <br />
+
+<!-- Input de comentariu -->
+
+    <!-- *ngIf="isLoggedIn" -->
+    <div class="container" *ngIf="isUserLogged()">
+      <div class="input-comment">
+        <!-- element pentru iconita utilizatorului-->
+        <span id="user" class="circle">{{getUserFirstLetter(0,true)}}</span>
+        <br />
+        <input [(ngModel)]="commentText" />
+      </div>
+      <button class="post" (click)="onPostComment()">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+        </div>
+        <span>Post</span>
+      </button>
+    </div>
+
+    <br />
+    <br />
+    <br />
+<!-- MY COMMENTS -->
+  <div class="my-comments" *ngIf="isUserLogged()">
+      <div *ngFor="let comment of my_comments; let i=index;" class="comment">
+        <!--TODO inlocuieste comments cu article.comments-->
+        <span id="user" class="circle">{{getUserFirstLetter(comment.id,true)}}</span>
+        <span class="name-text">{{comment.authorComment}}</span>
+        <input  [disabled]="!isInputDisabledMyComments[i]" [(ngModel)]="comment.content"/>
+
+        <img class="like" [src]="comment.id ? getLikeImage(comment.id) : ''" alt="like" (click)="changeFeedback(comment.id,true)"/>
+        <img class="dislike" [src]="comment.id ? getDislikeImage(comment.id) : ''" (click)="changeFeedback(comment.id,false)" />
+
+
+        <button class="edit" *ngIf="isOwnerOfMyComment()"(click)="toggleInput(i,comment.content)" > <!-- (click)="editMyComment(i)" -->
+          <div class="icon1">
+          <svg  class="edit-icon">
+            <path d="M19.89 5.38 L6.57 18.77 L0 19.98 L1.33 13.49 L14.65 0.11 C17.61 -0.61 20.61 2.4 19.89 5.38 L19.89 5.38 ZM5.78 17.28 C6.17 15.81 4.27 13.9 2.81 14.29 L2.06 17.96 L5.78 17.28 L5.78 17.28 Z">
+            </path>
+          </svg>
+          </div>
+        <span>Edit</span>
+        </button> <!-- (click)="editMyComment(i)" -->
+		
+        <!--<button class="delete" *ngIf="(isOwnerOfMyComment() || isCreatorOfArticle())" (click)="deleteMyComment(i)">delete</button> -->
+        <button class="delete" *ngIf="(isOwnerOfMyComment() || isCreatorOfArticle())" (click)="deleteMyComment(i)">
+          <div class="icon">
+            <svg class="top">
+              <use xlink:href="#top"></use>
+            </svg>
+            <svg class="bottom">
+              <use xlink:href="#bottom"></use>
+            </svg>
+          </div>
+          <span>Delete</span>
+        </button>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+          <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="top">
+            <!-- Aici păstrează conținutul pentru partea superioară a iconiței -->
+            <path d="M15,4 C15.5522847,4 16,4.44771525 16,5 L16,6 L18.25,6 C18.6642136,6 19,6.33578644 19,6.75 C19,7.16421356 18.6642136,7.5 18.25,7.5 L5.75,7.5 C5.33578644,7.5 5,7.16421356 5,6.75 C5,6.33578644 5.33578644,6 5.75,6 L8,6 L8,5 C8,4.44771525 8.44771525,4 9,4 L15,4 Z M14,5.25 L10,5.25 C9.72385763,5.25 9.5,5.47385763 9.5,5.75 C9.5,5.99545989 9.67687516,6.19960837 9.91012437,6.24194433 L10,6.25 L14,6.25 C14.2761424,6.25 14.5,6.02614237 14.5,5.75 C14.5,5.50454011 14.3231248,5.30039163 14.0898756,5.25805567 L14,5.25 Z"></path>
+          </symbol>
+          <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="bottom">
+            <!-- Aici păstrează conținutul pentru partea inferioară a iconiței -->
+            <path d="M16.9535129,8 C17.4663488,8 17.8890201,8.38604019 17.9467852,8.88337887 L17.953255,9.02270969 L17.953255,9.02270969 L17.5309272,18.3196017 C17.5119599,18.7374363 17.2349366,19.0993109 16.8365446,19.2267053 C15.2243631,19.7422351 13.6121815,20 12,20 C10.3878264,20 8.77565288,19.7422377 7.16347932,19.226713 C6.76508717,19.0993333 6.48806648,18.7374627 6.46907425,18.3196335 L6.04751853,9.04540766 C6.02423185,8.53310079 6.39068134,8.09333626 6.88488406,8.01304774 L7.02377738,8.0002579 L16.9535129,8 Z M9.75,10.5 C9.37030423,10.5 9.05650904,10.719453 9.00684662,11.0041785 L9,11.0833333 L9,16.9166667 C9,17.2388328 9.33578644,17.5 9.75,17.5 C10.1296958,17.5 10.443491,17.280547 10.4931534,16.9958215 L10.5,16.9166667 L10.5,11.0833333 C10.5,10.7611672 10.1642136,10.5 9.75,10.5 Z M14.25,10.5 C13.8703042,10.5 13.556509,10.719453 13.5068466,11.0041785 L13.5,11.0833333 L13.5,16.9166667 C13.5,17.2388328 13.8357864,17.5 14.25,17.5 C14.6296958,17.5 14.943491,17.280547 14.9931534,16.9958215 L15,16.9166667 L15,11.0833333 C15,10.7611672 14.6642136,10.5 14.25,10.5 Z"></path>
+          </symbol>
+        </svg>
+        
+      
+      </div>
+    </div>
+
+
+<!--  COMMENTS -->
+    <div class="comments">
+      <div *ngFor="let comment of comments; let i = index" class="comment">
+        <!--TODO inlocuieste comments cu article.comments-->
+        <span id="user" class="circle">{{authorLetters[i]}}</span>
+        <span class="name-text">{{comment.authorComment}}</span>
+
+        <input  [disabled]="true" [placeholder]="comment.content"/>
+
+
+        <img class="like" *ngIf="isUserLogged()" alt="like" [src]="comment.id ? getLikeImage(comment.id) : ''"  (click)="changeFeedback(comment.id,true)" />
+        <img class="dislike" *ngIf="isUserLogged()" alt="dislike" [src]="comment.id ? getDislikeImage(comment.id) : ''"  (click)="changeFeedback(comment.id,false)" />
+       
+       
+        <!-- <button class="edit" *ngIf="isOwnerOfComment(i)" (click)="toggleInput(i)">edit</button> -->
+        <!-- <button class="edit" *ngIf="isOwnerOfComment(i)" (click)="toggleInput(i, comment.content)">
+          <div class="icon1">
+          <svg  class="edit-icon">
+            
+              <path d="M19.89 5.38 L6.57 18.77 L0 19.98 L1.33 13.49 L14.65 0.11 C17.61 -0.61 20.61 2.4 19.89 5.38 L19.89 5.38 ZM5.78 17.28 C6.17 15.81 4.27 13.9 2.81 14.29 L2.06 17.96 L5.78 17.28 L5.78 17.28 Z">
+              </path>
+          
+          </svg>
+        </div>
+          <span>Edit</span>
+        </button> -->
+        <!--<button class="delete" *ngIf="isCreatorOfArticle()" (click)="deleteComment(i)">delete</button> -->
+        <button class="delete" *ngIf="(isOwnerOfComment(i) || isCreatorOfArticle())" (click)="deleteComment(i)">
+          <div class="icon">
+            <svg class="top">
+              <use xlink:href="#top"></use>
+            </svg>
+            <svg class="bottom">
+              <use xlink:href="#bottom"></use>
+            </svg>
+          </div>
+          <span>Delete</span>
+        </button>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+          <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="top">
+            <!-- Aici păstrează conținutul pentru partea superioară a iconiței -->
+            <path d="M15,4 C15.5522847,4 16,4.44771525 16,5 L16,6 L18.25,6 C18.6642136,6 19,6.33578644 19,6.75 C19,7.16421356 18.6642136,7.5 18.25,7.5 L5.75,7.5 C5.33578644,7.5 5,7.16421356 5,6.75 C5,6.33578644 5.33578644,6 5.75,6 L8,6 L8,5 C8,4.44771525 8.44771525,4 9,4 L15,4 Z M14,5.25 L10,5.25 C9.72385763,5.25 9.5,5.47385763 9.5,5.75 C9.5,5.99545989 9.67687516,6.19960837 9.91012437,6.24194433 L10,6.25 L14,6.25 C14.2761424,6.25 14.5,6.02614237 14.5,5.75 C14.5,5.50454011 14.3231248,5.30039163 14.0898756,5.25805567 L14,5.25 Z"></path>
+          </symbol>
+          <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="bottom">
+            <!-- Aici păstrează conținutul pentru partea inferioară a iconiței -->
+            <path d="M16.9535129,8 C17.4663488,8 17.8890201,8.38604019 17.9467852,8.88337887 L17.953255,9.02270969 L17.953255,9.02270969 L17.5309272,18.3196017 C17.5119599,18.7374363 17.2349366,19.0993109 16.8365446,19.2267053 C15.2243631,19.7422351 13.6121815,20 12,20 C10.3878264,20 8.77565288,19.7422377 7.16347932,19.226713 C6.76508717,19.0993333 6.48806648,18.7374627 6.46907425,18.3196335 L6.04751853,9.04540766 C6.02423185,8.53310079 6.39068134,8.09333626 6.88488406,8.01304774 L7.02377738,8.0002579 L16.9535129,8 Z M9.75,10.5 C9.37030423,10.5 9.05650904,10.719453 9.00684662,11.0041785 L9,11.0833333 L9,16.9166667 C9,17.2388328 9.33578644,17.5 9.75,17.5 C10.1296958,17.5 10.443491,17.280547 10.4931534,16.9958215 L10.5,16.9166667 L10.5,11.0833333 C10.5,10.7611672 10.1642136,10.5 9.75,10.5 Z M14.25,10.5 C13.8703042,10.5 13.556509,10.719453 13.5068466,11.0041785 L13.5,11.0833333 L13.5,16.9166667 C13.5,17.2388328 13.8357864,17.5 14.25,17.5 C14.6296958,17.5 14.943491,17.280547 14.9931534,16.9958215 L15,16.9166667 L15,11.0833333 C15,10.7611672 14.6642136,10.5 14.25,10.5 Z"></path>
+          </symbol>
+        </svg>
+      </div>
+    </div>
+
+    <br />
+
+   
+      <!-- {{ article.facebook }}
+      {{ article.twitter }}
+      {{ article.instagram }} -->
+
+      <div class="links">
+        <a href="https://ro-ro.facebook.com/">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="25"
+          viewBox="0 0 48 48"
+          fill="none"
+        >
+          <path
+            d="M48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 35.9789 8.77641 45.908 20.25 47.7084V30.9375H14.1562V24H20.25V18.7125C20.25 12.6975 23.8331 9.375 29.3152 9.375C31.9402 9.375 34.6875 9.84375 34.6875 9.84375V15.75H31.6613C28.68 15.75 27.75 17.6002 27.75 19.5V24H34.4062L33.3422 30.9375H27.75V47.7084C39.2236 45.908 48 35.9789 48 24Z"
+            fill="#1877F2"
+          />
+        </svg>
+        </a>
+        <a href="https://twitter.com/i/flow/signup">
+        <svg
+          xmlns="https://www.instagram.com/?__coig_restricted=1"
+          width="25"
+          height="25"
+          viewBox="0 0 48 48"
+          fill="none"
+        >
+          <path
+            d="M15.095 43.5015C33.2083 43.5015 43.1155 28.4948 43.1155 15.481C43.1155 15.0548 43.1155 14.6305 43.0867 14.2081C45.0141 12.814 46.6778 11.0878 48 9.11048C46.2028 9.90728 44.2961 10.4296 42.3437 10.6599C44.3996 9.4293 45.9383 7.49349 46.6733 5.21288C44.7402 6.3601 42.6253 7.16853 40.4198 7.60328C38.935 6.02443 36.9712 4.97896 34.8324 4.62865C32.6935 4.27834 30.4988 4.64271 28.5879 5.66539C26.677 6.68806 25.1564 8.31203 24.2615 10.286C23.3665 12.2599 23.1471 14.4738 23.6371 16.585C19.7218 16.3886 15.8915 15.3711 12.3949 13.5985C8.89831 11.8259 5.81353 9.3378 3.3408 6.29576C2.08146 8.46375 1.69574 11.0302 2.2622 13.4726C2.82865 15.915 4.30468 18.0497 6.38976 19.442C4.82246 19.3961 3.2893 18.9733 1.92 18.2094V18.3342C1.92062 20.6079 2.7077 22.8114 4.14774 24.5709C5.58778 26.3304 7.59212 27.5377 9.8208 27.9879C8.37096 28.3834 6.84975 28.4412 5.37408 28.1569C6.00363 30.1135 7.22886 31.8246 8.87848 33.0508C10.5281 34.277 12.5197 34.957 14.5747 34.9959C12.5329 36.6009 10.1946 37.7875 7.69375 38.4879C5.19287 39.1883 2.57843 39.3888 0 39.0778C4.50367 41.9679 9.74385 43.5009 15.095 43.4938"
+            fill="#1DA1F2"
+          />
+        </svg>
+        </a>
+        <a href="https://www.instagram.com/?__coig_restricted=1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="25"
+          viewBox="0 0 48 48"
+          fill="none"
+        >
+          <g clip-path="url(#clip0_93_26744)">
+            <path
+              d="M24 4.32187C30.4125 4.32187 31.1719 4.35 33.6938 4.4625C36.0375 4.56562 37.3031 4.95938 38.1469 5.2875C39.2625 5.71875 40.0688 6.24375 40.9031 7.07812C41.7469 7.92188 42.2625 8.71875 42.6938 9.83438C43.0219 10.6781 43.4156 11.9531 43.5188 14.2875C43.6313 16.8187 43.6594 17.5781 43.6594 23.9813C43.6594 30.3938 43.6313 31.1531 43.5188 33.675C43.4156 36.0188 43.0219 37.2844 42.6938 38.1281C42.2625 39.2438 41.7375 40.05 40.9031 40.8844C40.0594 41.7281 39.2625 42.2438 38.1469 42.675C37.3031 43.0031 36.0281 43.3969 33.6938 43.5C31.1625 43.6125 30.4031 43.6406 24 43.6406C17.5875 43.6406 16.8281 43.6125 14.3063 43.5C11.9625 43.3969 10.6969 43.0031 9.85313 42.675C8.7375 42.2438 7.93125 41.7188 7.09688 40.8844C6.25313 40.0406 5.7375 39.2438 5.30625 38.1281C4.97813 37.2844 4.58438 36.0094 4.48125 33.675C4.36875 31.1438 4.34063 30.3844 4.34063 23.9813C4.34063 17.5688 4.36875 16.8094 4.48125 14.2875C4.58438 11.9437 4.97813 10.6781 5.30625 9.83438C5.7375 8.71875 6.2625 7.9125 7.09688 7.07812C7.94063 6.23438 8.7375 5.71875 9.85313 5.2875C10.6969 4.95938 11.9719 4.56562 14.3063 4.4625C16.8281 4.35 17.5875 4.32187 24 4.32187ZM24 0C17.4844 0 16.6688 0.028125 14.1094 0.140625C11.5594 0.253125 9.80625 0.665625 8.2875 1.25625C6.70312 1.875 5.3625 2.69062 4.03125 4.03125C2.69063 5.3625 1.875 6.70313 1.25625 8.27813C0.665625 9.80625 0.253125 11.55 0.140625 14.1C0.028125 16.6687 0 17.4844 0 24C0 30.5156 0.028125 31.3312 0.140625 33.8906C0.253125 36.4406 0.665625 38.1938 1.25625 39.7125C1.875 41.2969 2.69063 42.6375 4.03125 43.9688C5.3625 45.3 6.70313 46.125 8.27813 46.7344C9.80625 47.325 11.55 47.7375 14.1 47.85C16.6594 47.9625 17.475 47.9906 23.9906 47.9906C30.5063 47.9906 31.3219 47.9625 33.8813 47.85C36.4313 47.7375 38.1844 47.325 39.7031 46.7344C41.2781 46.125 42.6188 45.3 43.95 43.9688C45.2812 42.6375 46.1063 41.2969 46.7156 39.7219C47.3063 38.1938 47.7188 36.45 47.8313 33.9C47.9438 31.3406 47.9719 30.525 47.9719 24.0094C47.9719 17.4938 47.9438 16.6781 47.8313 14.1188C47.7188 11.5688 47.3063 9.81563 46.7156 8.29688C46.125 6.70312 45.3094 5.3625 43.9688 4.03125C42.6375 2.7 41.2969 1.875 39.7219 1.26562C38.1938 0.675 36.45 0.2625 33.9 0.15C31.3313 0.028125 30.5156 0 24 0Z"
+              fill="black"
+            />
+            <path
+              d="M24 11.6719C17.1938 11.6719 11.6719 17.1938 11.6719 24C11.6719 30.8062 17.1938 36.3281 24 36.3281C30.8062 36.3281 36.3281 30.8062 36.3281 24C36.3281 17.1938 30.8062 11.6719 24 11.6719ZM24 31.9969C19.5844 31.9969 16.0031 28.4156 16.0031 24C16.0031 19.5844 19.5844 16.0031 24 16.0031C28.4156 16.0031 31.9969 19.5844 31.9969 24C31.9969 28.4156 28.4156 31.9969 24 31.9969Z"
+              fill="black"
+            />
+            <path
+              d="M39.6937 11.1843C39.6937 12.778 38.4 14.0624 36.8156 14.0624C35.2219 14.0624 33.9375 12.7687 33.9375 11.1843C33.9375 9.59053 35.2313 8.30615 36.8156 8.30615C38.4 8.30615 39.6937 9.5999 39.6937 11.1843Z"
+              fill="black"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_93_26744">
+              <rect width="48" height="48" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        </a>
+      </div>
+   
+  
+</body>

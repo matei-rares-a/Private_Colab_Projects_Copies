@@ -1,0 +1,189 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    
+  }
+  
+  .cards-container {
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    gap: 40px;
+    
+  }
+  
+  .card {
+    width: 352px;
+  height: 604px;
+  margin-top: 85px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #FFF;
+  box-shadow: 0.5px 0.5px 8px 0px rgba(0, 0, 0, 0.42);
+  
+
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    // Scale the card to make it larger on hover
+    transform: scale(1.1);
+  }
+  
+  }
+  
+  .card img{
+    display: flex;
+    width: 144px;
+    height: 140px;
+    margin-left: 104px;
+    margin-right: 104px;
+    border-radius: 100px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  
+  .Name{
+    color: var(--day-text-icons-text-01, rgba(27, 31, 59, 0.80));
+
+  /* Desktop/Heading 3 */
+  font-family: Manrope;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 40px; /* 111.111% */
+  margin-left: 88px;
+  margin-right: 88px;
+  margin-top: 16px;
+  }
+
+  .description {
+    width: 262px;
+  height: 215px;
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-top: 67px;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  }
+  
+  $icon-size-normal: 35px;
+  $icon-size-hover: 40px;
+  /* Stilizăm secțiunea de link-uri */
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  
+  
+    svg {
+      width: $icon-size-normal;
+      height: $icon-size-normal;
+      fill: #1877F2; // Culoarea de umplere a iconițelor (înlocuiește cu culoarea dorită)
+  
+      // Efect de tranzitie pentru marimea iconitelor la hover
+      transition: transform 0.2s ease-in-out;
+  
+      // Efect de hover: mărește iconița și aplică un efect de clătinare
+      &:hover {
+        transform: scale(1.2) rotate(-8deg); // Mărește iconița la 1.2x și aplică o rotație de -5 grade
+      }
+    }
+  
+    // Poți adauga margin sau padding între iconițe dacă dorești
+    svg + svg {
+      margin-left: 10px;
+    }
+  }
+
+  
+  h1 {
+    color: var(--day-text-icons-text-01, rgba(27, 31, 59, 0.80));
+    /* Desktop/Heading 1 */
+    margin-top: 103px;
+    font-family: Manrope;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 56px; /* 112% */
+    text-align: center; /* Center the h1 text horizontally */
+    position: absolute; /* Use absolute positioning */
+   // top: 50%; /* Move the h1 down 50% from the top of its containing element */
+    left: 50%; /* Move the h1 horizontally 50% from the left of its containing element */
+    transform: translate(-50%, -50%); /* Center the h1 both horizontally and vertically */
+}
+
+
+  #leftButton {
+    position: absolute;
+    left: 70px;
+    top: 600px;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    background-color: #485F35;
+    color: white;
+    border-radius:100px;
+  }
+
+  #rightButton {
+    position: absolute;
+    right: 70px;
+    top: 600px;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    background-color: #485F35;
+    color: white;
+    border-radius:100px;
+  }
+
+
+  /////loading
+  .custom-loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e3f2e1;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    height: 200px;
+    margin: 0 auto; /* Center the container horizontally */
+    margin-top: 15%;
+
+  }
+  
+  .custom-loader {
+    width: 70px;
+    height: 70px;
+    border: 8px solid #638363;
+    border-radius: 50%;
+    border-top: 8px solid #fff;
+    animation: spin 2s linear infinite;
+  }
+  
+  .custom-loading-text {
+    margin-top: 20px;
+    font-size: 30px;
+    color: #446b44;
+    text-shadow: 1px 1px 2px #ffffff;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

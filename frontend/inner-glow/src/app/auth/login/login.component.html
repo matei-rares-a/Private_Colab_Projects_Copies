@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Login Page</title>
+  
+</head>
+<body>
+  <img src="../../../assets/logo2.png" alt="Descrierea imaginii" id="poza2">
+  <div class="container">
+    <h1>Login</h1>
+    <form [formGroup]="formGroup" (ngSubmit)="submitForm()" >
+
+      <div class="form-group">
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email"formControlName="email" required>
+
+        <span *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched" class="error-message">
+          <span *ngIf="formGroup.get('email')?.errors?.['required']">Please enter your email address.</span>
+          <span *ngIf="formGroup.get('email')?.errors?.['email']">Please enter a valid email address.</span>
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" formControlName="password" required>
+      </div>
+      
+      <div class="form-group">
+        <button type="submit" [disabled]="formGroup.invalid" [ngStyle]="{'background-color': formGroup.invalid ? '#829b6d' : '#485F35'}">Login</button>
+      </div>
+    </form>
+    <div class="additional-links">
+      <a routerLink='/recoveryaccount'>Forgot Password</a>
+    </div>
+    <!-- login.component.html -->
+<div class="register-link">
+  Don't have an account? <a routerLink='/auth/sign-up'>Register</a>
+</div>
+
+  </div>
+</body>
+</html>
+

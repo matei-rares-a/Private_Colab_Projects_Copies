@@ -1,0 +1,219 @@
+/* Stilurile pentru top bar */
+nav {
+  background-color: #485f35;
+  color: #fff;
+  display: flex;
+  height: 64px;
+  justify-content: center; /* Change justify-content value to space-between */ // aiciea e center
+  align-items: center;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  position: fixed;
+  transition: top 0.5s ease-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.logo-innerglow svg {
+  margin-right: -17px; /* Reduce the margin between the SVGs */
+}
+.logo-innerglow svg:last-child {
+  transform: translateY(-1px); /* Move the second SVG 1px higher */
+}
+nav div:nth-child(2){
+  margin-top: 10px;
+  margin-bottom: 10px; 
+  background-color: white;
+  border-radius: 29px; /* Adjust the value to control the roundness of the corners */
+  padding: 5px;/* Adjust the padding as needed */
+  width:300px;
+}
+
+nav div:nth-child(5) {
+  display: flex; /* Use flexbox to place buttons side by side */
+  align-items: center; /* Align buttons vertically in the center */
+}
+/* Adjust the buttons inside the fifth div */
+nav div:nth-child(5) button {
+  margin-right: 10px; /* Add 18px space between buttons */
+}
+
+
+.input-magnifier {
+  display: flex;
+  align-items: center;
+  border: 2px solid transparent;
+  width: 197px; /* Set the width to 197 pixels */
+}
+
+.input-magnifier:focus-within {
+  border-color: #000;
+}
+
+.input-magnifier img {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 0px; /* Adjust the margin-bottom to move the image lower */
+}
+
+.input-magnifier input[type="text"] {
+  border: none;
+  outline: none;
+  color: black;
+}
+
+
+nav a {
+  font-family: Roboto;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 10px;
+  /* or padding: 10px; */
+  transition: color 0.1s ease-in-out;
+}
+
+nav a:hover {
+  color: #97bc7a;
+}
+
+
+
+a.underline {
+  position: relative;
+  text-decoration: none;
+  color: black;
+}
+
+a.underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px; /* Adjust this value to control the distance */
+  width: 100%;
+  height: 2px; /* Adjust this value to control the thickness */
+  background-color: rgb(255, 255, 255);/* Adjust this value to control the color */
+}
+
+#admin {
+  color: black;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+
+
+.join-us-button {
+  background-color: white;
+  color: #485f35;
+  border-radius: 20px; /* Add border-radius to round the corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add transition for hover effect */
+  margin-right: 10px;
+}
+
+.join-us-button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px; /* Add margin-right to separate the image from text */
+}
+
+.join-us-button:hover {
+  background-color: #f1f1f1; /* Add background color change for hover effect */
+}
+
+
+.sign-up-button {
+  background-color: #485f35;
+  color: white;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px solid white; /* Add white border */
+}
+
+.sign-up-button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.sign-up-button:hover {
+  background-color: #3d4e29;
+}
+
+
+.sign-out-button {
+  background-color: #485f35;
+  color: white;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px solid white; /* Add white border */
+}
+
+.sign-out-button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.sign-out-button:hover {
+  background-color: #3d4e29;
+}
+
+/////distante intre divuri
+ @media (max-width: 768px) { //pentru responsivness
+  nav div:not(:first-child) {
+    margin-left: 10px; /* Smaller distance between elements on smaller screens */
+  }
+}
+nav div:nth-child(1) {
+  margin-left: 1%;
+}
+
+nav div:nth-child(2) {
+  margin-left: 10%; /* Add margin-left to create distance */
+}
+
+nav div:nth-child(3) {
+  margin-left: 1%; /* Add margin-right for the second div */
+  margin-right:-4%
+}
+nav div:nth-child(4) {
+  margin-left: 5%; /* Add margin-right for the second div */
+ margin-right:1%
+}
+nav div:nth-child(5) {
+  margin-left:-1%;
+  margin-right: 5%; /* Add margin-right for the second div */
+}
+

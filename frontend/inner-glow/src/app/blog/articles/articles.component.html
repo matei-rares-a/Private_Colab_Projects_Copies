@@ -1,0 +1,43 @@
+
+
+  <div class="center-container-filters">
+    <app-filter
+      (selectedOptionsEmmiter)="onOptionsSelected($event)"
+    ></app-filter>
+  </div>
+
+
+  <div *ngIf="loading" class="custom-loader-container">
+    <div class="custom-loader"></div>
+    <div class="custom-loading-text">Please wait...</div>
+  </div>
+  
+  
+
+  <div *ngIf="!loading">
+
+  <div class="container">
+    <div class="card-grid">
+      <app-card
+        *ngFor="let article of articles; let i = index"
+        [route]="'/blog/article-details/' + articles[i].id"
+        [title]="articles[i].title"
+        [imageBytecode]="articles[i].img.content"
+        [content]="articles[i].content"
+        [date]="articles[i].publicateDate"
+        [author]="articles[i].author"
+        [articleId]="articles[i].id"
+        [isFavorite]="articles[i].isFavorite"
+      ></app-card>
+    </div>
+  </div>
+  </div>
+  <div class="paginator">
+    <app-paginator
+      [currentPage]="currentPage"
+      [totalPages]="totalPages"
+      (pageChanged)="onPageChanged($event)"
+    ></app-paginator>
+  </div>
+  <label></label>
+

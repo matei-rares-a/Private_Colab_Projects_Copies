@@ -1,0 +1,5 @@
+<div class="butoane">
+<button (click)="getPrev()" *ngIf="(currentPage > 1)" > &lt; </button>
+<label>{{currentPage}}/{{totalPages}}</label>
+<button (click)="getNext()" *ngIf="currentPage != totalPages"> &gt; </button>
+</div>

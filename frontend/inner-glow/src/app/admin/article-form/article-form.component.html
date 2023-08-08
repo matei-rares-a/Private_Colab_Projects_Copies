@@ -1,0 +1,112 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <h1>Create an article</h1>
+
+  <div class="form-container">
+    <div class="text">
+      <p>Title*</p>
+      <textarea id="text1" formControlName="text1" required></textarea>
+      <p>Text*</p>
+      <textarea id="text2" formControlName="text2" required></textarea>
+    </div>
+
+    <div class="categories">
+      <label for="category">Category*</label>
+
+      <!-- Category -->
+      <div class="custom-select" #customSelect>
+        <div
+          class="select-container"
+          (click)="toggleOptionsVisibilityCategory(!areOptionsVisible)"
+        >
+          <div class="selected-options">
+            <a>{{ getSelectedDisplayCategory() }}</a>
+          </div>
+          <div
+            class="options"
+            [hidden]="!areOptionsVisible"
+            (click)="$event.stopPropagation()"
+          >
+            <label *ngFor="let option of optionsCategory">
+              {{ option }}
+              <input
+                type="checkbox"
+                [checked]="selectedOptionsCategory.includes(option)"
+                (change)="toggleSelectionCategory(option)"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+
+      <label for="city">City*</label>
+
+      <select id="city" name="city" formControlName="city" required>
+        <option value="" selected>Choose an option...</option>
+        <option value="Iasi">Iasi</option>
+        <option value="Suceava">Suceava</option>
+        <option value="Galati">Galati</option>
+        <option value="Bacau">Bacau</option>
+        <option value="Bucuresti">Bucuresti</option>
+
+        <option value="Online">Online</option>
+      </select>
+
+      <br />
+      <label for="date">Date of the event*</label>
+      <input type="date" id="date" name="date" formControlName="date" [min]="currentDate" required />
+      <br />
+
+      <label for="fb">Facebook</label>
+      <input type="text" name="fb" />
+      <br />
+
+      <label for="tt">Twitter</label>
+      <input type="text" name="tt" />
+      <br />
+
+      <label for="ins">Instagram</label>
+      <input type="text" name="ins" />
+    </div>
+  </div>
+
+  <div class="file-upload">
+    <label
+      for="file-input"
+      class="drop-container"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      (drop)="onDrop($event)"
+    >
+      <span class="drop-title">Drop files here</span> or
+      <input
+        type="file"
+        accept="image/*"
+        id="file-input"
+        multiple
+        (change)="onFileSelected($event)"
+      />
+    </label>
+
+    <div class="file-preview" *ngIf="filesToUpload.length > 0">
+      <h3>Uploaded Files:</h3>
+      <ul>
+        <li *ngFor="let file of filesToUpload">
+          <span class="file-name">{{ file.nameOfFile }}</span>
+          <button class="discard-button" (click)="discardFile(file.nameOfFile)">
+            X
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="submit-bottom">
+    <input
+      type="submit"
+      value="Post"
+      (click)="onSubmit()"
+      [disabled]="!isOptionSelected() || !myForm.valid"
+      [ngClass]="{ 'dimmed-button': !isOptionSelected() || !myForm.valid }"
+    />
+  </div>
+</form>

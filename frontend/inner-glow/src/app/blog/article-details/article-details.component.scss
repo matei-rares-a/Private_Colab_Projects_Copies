@@ -1,0 +1,457 @@
+/* Titlu */
+.title-container {
+  display: flex;
+  align-items: center;
+  /* Optional: To vertically center the items */
+  font-family: Manrope;
+  /* font-size: 80px; */
+  font-style: normal;
+  font-weight: 400;
+
+}
+
+.title-container h3 {
+  font-size: 40px;
+
+  margin-top: 30px;
+  margin-left: 15px;
+  color: #505050;
+  font-family: Manrope;
+  /* font-size: 80px; */
+  font-style: normal;
+  font-weight: 700;
+  margin-right: 100px;
+  /* Optional: Add some space between the elements */
+}
+
+.title-container button {
+  margin-top: 20px;
+  width: 70px;
+}
+
+/* Conținut */
+.content {
+  display: flex;
+  //justify-content: flex-end;
+  margin-bottom: 100px;
+
+
+}
+
+
+.text {
+  // flex: 1; /* Allow the text div to expand and take available space */
+  font-family: Manrope;
+  /* font-size: 80px; */
+  font-style: normal;
+  font-weight: 200;
+  margin-left: 15px;
+  font-size: 16px;
+  //width: 50%;
+  //max-width: 50%;
+
+}
+
+/* Comentarii */
+#user {
+  color: black;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgb(158, 158, 158);
+  color: black;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.bold_details label {
+  font-weight: bold;
+  font-family: Manrope;
+  /* font-size: 80px; */
+  font-style: normal;
+  margin-left: 15px;
+  font-size: 19px;
+
+}
+
+.details {
+  font-family: Manrope;
+  font-style: normal;
+  margin-left: 15px;
+  font-size: 19px;
+}
+
+button {
+  width: 4%;
+  padding: 10px;
+  background-color: #57664b;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #485F35;
+}
+
+.post-button .icon {
+  width: 24px;
+  height: 24px;
+ 
+}
+
+.post-button svg {
+  fill: #ffffff; 
+  position: absolute; 
+  left: 10px; 
+  top: 50%; 
+}
+
+.post {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+/* Container pentru comentarii */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-comment {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  width: 50%;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  margin-left:15px;
+  background-color: #F2F7F0;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  font-family: Manrope;
+  font-style: normal;
+}
+
+.input-comment input {
+  flex: 1;
+  font-family: Manrope;
+  /* font-size: 80px; */
+  font-style: normal;
+  border-radius: 15px;
+}
+
+.post {
+  margin-left: 920px;
+}
+
+/* Comentariile mele */
+.my-comments {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: Manrope;
+  /* font-size: 80px; */
+  font-style: normal;
+}
+
+.comment {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  width: 50%;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  background-color: #F2F7F0;
+  font-family: Manrope;
+  /* font-size: 80px; */
+  font-style: normal;
+}
+
+.comment #user {
+  font-size: 20px;
+  background-color: #485F35;
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment input {
+  flex-basis: 100%;
+  height: 25px;
+  border: 1px solid #F2F7F0;
+  background-color: #cecece;
+  border-radius: 15px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+.comment input:disabled {
+  background-color: #F2F7F0; /* Replace this with the desired background color for disabled inputs */
+  cursor: not-allowed; /* Optional: Change the cursor to "not-allowed" when the input is disabled */
+}
+
+.comment .like,
+.comment .dislike {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.comment .like {
+  margin-left: 20px;
+
+}
+
+.comment .edit {
+  width: 70px;
+  height: 40px;
+  cursor: pointer;
+  float: right;
+  margin-left: auto; /* Adaugă această linie pentru a poziționa butoanele la dreapta */
+  justify-content: flex-end;
+}
+
+.comment .delete {
+  width: 85px;
+  height: 40px;
+  cursor: pointer;
+  float: right;
+  margin-left: 20px;
+}
+
+.comment .like,
+.comment .dislike,
+.comment .edit,
+.comment .delete {
+  margin-top: 5px;
+}
+
+.icon1{
+  width: 24px;
+  height: 24px;
+  position: relative;
+  z-index: 1;
+  margin-right: 5px;
+  color: var(--text);
+  fill:white;
+  svg {
+    width: 96px;
+    height: 96px;
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    will-change: transform;
+    fill: var(--icon);
+    animation: var(--name, var(--name-top, none)) 2200ms ease forwards;
+    
+  }
+}
+
+
+.edit {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.delete {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+
+.icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  z-index: 1;
+  margin-right: 5px;
+  color: var(--text);
+  fill:white;
+  svg {
+      width: 96px;
+      height: 96px;
+      display: block;
+      position: absolute;
+      left: -36px;
+      top: -36px;
+      will-change: transform;
+      fill: var(--icon);
+      transform: scale(.254) translateZ(0);
+      animation: var(--name, var(--name-top, none)) 2200ms ease forwards;
+      &.bottom {
+          --name: var(--name-bottom, none);
+      }
+  }
+}
+
+/* Butoane de navigare pentru imagini */
+.prev-btn,
+.next-btn {
+  margin-top: -300px;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background-color: #485F35;
+  color: white;
+  border-radius: 100px;
+  //margin-top: 50%;
+  // margin-bottom: 50%;
+  //display: block;
+  vertical-align: middle;
+}
+
+// span {
+//   font-family: Manrope;
+//   /* font-size: 80px; */
+//   font-style: normal;
+// }
+
+
+//imagine top
+.fat {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  /* Aici poți seta înălțimea dorită pentru imagine */
+  overflow: hidden;
+}
+
+.fat img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Stilizăm secțiunea de link-uri */
+$icon-size-normal: 35px;
+$icon-size-hover: 40px;
+
+.linkuri {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+
+  svg {
+    width: $icon-size-normal;
+    height: $icon-size-normal;
+    fill: #1877F2; // Culoarea de umplere a iconițelor (înlocuiește cu culoarea dorită)
+
+    // Efect de tranzitie pentru marimea iconitelor la hover
+    transition: transform 0.2s ease-in-out;
+
+    // Efect de hover: mărește iconița și aplică un efect de clătinare
+    &:hover {
+      transform: scale(1.2) rotate(-8deg); // Mărește iconița la 1.2x și aplică o rotație de -5 grade
+    }
+  }
+
+  // Poți adauga margin sau padding între iconițe dacă dorești
+  svg+svg {
+    margin-left: 10px;
+  }
+}
+
+
+ #editCreator.edit {
+  /* CSS styles here */
+  text-indent: 12px;
+}
+#deleteCreator.delete {
+  /* CSS styles here */
+  text-indent: 5px;
+}
+////links
+
+
+.links {
+  display: flex;
+  gap: 20px;
+  margin-left: 20px;
+
+  svg {
+    width: $icon-size-normal;
+    height: $icon-size-normal;
+    fill: #1877F2; // Culoarea de umplere a iconițelor (înlocuiește cu culoarea dorită)
+
+    // Efect de tranzitie pentru marimea iconitelor la hover
+    transition: transform 0.2s ease-in-out;
+
+    // Efect de hover: mărește iconița și aplică un efect de clătinare
+    &:hover {
+      transform: scale(1.2) rotate(-8deg); // Mărește iconița la 1.2x și aplică o rotație de -5 grade
+    }
+  }
+
+  // Poți adauga margin sau padding între iconițe dacă dorești
+  svg + svg {
+    margin-left: 10px;
+  }
+
+  
+}
+
+
+//////loading
+
+.custom-loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e3f2e1;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  height: 200px;
+  margin: 0 auto; /* Center the container horizontally */
+  margin-top: 15%;
+
+}
+
+.custom-loader {
+  width: 70px;
+  height: 70px;
+  border: 8px solid #638363;
+  border-radius: 50%;
+  border-top: 8px solid #fff;
+  animation: spin 2s linear infinite;
+}
+
+.custom-loading-text {
+  margin-top: 20px;
+  font-size: 30px;
+  color: #446b44;
+  text-shadow: 1px 1px 2px #ffffff;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
