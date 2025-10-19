@@ -1,1 +1,1 @@
-Copie a proiectelor la care am contribuit in facultate
+Copie a proiectelor din https://github.com/matei-rares/collaborative-work-summary
