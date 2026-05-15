@@ -1,4 +1,4 @@
-Team projects I collaborated on
+Team projects I collaborated on \
 https://github.com/sebastian-pitica/WriteRight-Text_editor-Csharp A text editor that has feature similar to Notepad++ (multiple tabs, text highlight based on the language of the file, etc) made in C#, using Windows Application.
 
 https://github.com/rusuiuliancen/centric-practice23-innerglow Website that uses Angular (frontend), .Net (backend) and SQL (Microsoft SQL server) to build a community around the concept of wellness and wellbeing.
